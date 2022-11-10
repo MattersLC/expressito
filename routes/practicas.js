@@ -3,9 +3,8 @@ var router = express.Router();
 const htmlController = require("../controllers/htmlController")
 
 /* GET home page. */
-/*router.get('/', function(req,res,next) {
-  res.send("Bienvenido a la biblioteca");
-});*/
 router.get('/', htmlController.index);
+//router.get('/crear', librosController.crear);
+//router.post('/enviar', librosController.guardar);
 
 module.exports = router;

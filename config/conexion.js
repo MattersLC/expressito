@@ -3,7 +3,7 @@ var con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'biblioteca',
+    database: 'centro_de_computo',
     port: "3307"
 });
 
