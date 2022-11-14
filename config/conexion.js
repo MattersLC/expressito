@@ -11,6 +11,9 @@ con.connect(
     (err)=> {
         if(!err) {
             console.log('Conexión establecida');
+            let date = new Date();
+            let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
+            console.log(output);
         } else {
             console.log('Error de conexión');
         }
