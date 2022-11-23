@@ -4,12 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>ITO - Agenda </title>
+    <title> AGENDA </title>
     <link rel="icon" type="image/x-icon" href="../src/assets/img/favicon.ico"/>
     <link href="../layouts/vertical-dark-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
     <link href="../layouts/vertical-dark-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
     <script src="../layouts/vertical-dark-menu/loader.js"></script>
-
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
     <link href="../src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -17,19 +16,19 @@
     <link href="../layouts/vertical-dark-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
-    <!-- BEGIN PAGE LEVEL STYLE -->
-    <link href="../src/plugins/src/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link rel="stylesheet" type="text/css" href="../src/plugins/src/vanillaSelectBox/vanillaSelectBox.css">
+    
+    <link href="../src/assets/css/light/scrollspyNav.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../src/plugins/css/light/vanillaSelectBox/custom-vanillaSelectBox.css">
 
-    <link href="../src/plugins/css/light/fullcalendar/custom-fullcalendar.css" rel="stylesheet" type="text/css" />
-    <link href="../src/assets/css/light/components/modal.css" rel="stylesheet" type="text/css">
-
-    <link href="../src/plugins/css/dark/fullcalendar/custom-fullcalendar.css" rel="stylesheet" type="text/css" />
-    <link href="../src/assets/css/dark/components/modal.css" rel="stylesheet" type="text/css">
-    <!-- END PAGE LEVEL STYLE -->
+    <link href="../src/assets/css/dark/scrollspyNav.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../src/plugins/css/dark/vanillaSelectBox/custom-vanillaSelectBox.css">
+    <!--  END CUSTOM STYLE FILE  -->
 
 </head>
-<body class="dark layout-boxed">
-
+<body class="layout-boxed" data-bs-spy="scroll" data-bs-target="#navSection" data-bs-offset="100">
+    
     <!-- BEGIN LOADER -->
     <div id="load_screen"> <div class="loader"> <div class="loader-content">
         <div class="spinner-grow align-self-center"></div>
@@ -108,6 +107,7 @@
     <div class="main-container " id="container">
 
         <div class="overlay"></div>
+        <div class="cs-overlay"></div>
         <div class="search-overlay"></div>
 
         <!--  BEGIN SIDEBAR  -->
@@ -123,7 +123,7 @@
                             </a>
                         </div>
                         <div class="nav-item theme-text">
-                            <a href="../practicas/" class="nav-link"> ITO </a>
+                            <a href="../practicas/" class="nav-link"> TecNM </a>
                         </div>
                     </div>
                     <div class="nav-item sidebar-toggle">
@@ -148,27 +148,27 @@
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>APLICACIONES</span></div>
                     </li>
 
-                    <li class="menu">
+                    <li class="menu active">
                         <a href="./agendar" aria-expanded="false" class="dropdown-toggle">
-                            <div class="active">
+                            <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                 <span>Agenda</span>
                             </div>
                         </a>
                     </li>
 
-                    <li class="menu active">
+                    <li class="menu">
                         <a href="./nueva-practica" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                                <span>Prácticas</span>
+                                <span>Nueva practica</span>
                             </div>
                         </a>
                     </li>
                     
                     <li class="menu">
                         <a href="./chat" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
+                            <div class="active">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                                 <span>Chat</span>
                             </div>
@@ -259,12 +259,9 @@
                                 <a href="./auth-cover-2-step-verification.html" target="_blank"> 2 Step Cover </a>
                             </li>
                         </ul>
-                    </li>
-                    
+                    </li>  
                 </ul>
-                
             </nav>
-
         </div>
         <!--  END SIDEBAR  -->
 
@@ -273,48 +270,209 @@
             <div class="layout-px-spacing">
 
                 <div class="middle-content container-xxl p-0">
-                    
-                    <div class="row layout-top-spacing layout-spacing" id="cancel-row">
-                        <div class="col-xl-12 col-lg-12 col-md-12">
-                            <div class="calendar-container">
-                                <div class="calendar" locale="es"></div>
+
+                    <div class="row layout-top-spacing">
+
+                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Elemento actual</h4>
+                                        <h6>[<%= practica.id %>] - [<%= practica.fecha %>] - [<%= practica.dia %>] - [<%= practica.horario %>] - [<%= practica.grupo %>] - [<%= practica.materia %>] [<%= practica.docente %>] [<%= practica.alumnos %>] [<%= practica.carrera %>] [<%= practica.software %>]</h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Agregar Práctica</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-    
+                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">                                
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class=""/>
-                                                <label class="form-label">Ingresa la fecha</label>
-                                                <input id="event-title" type="text" class="form-control">
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Selecciona la fecha</h4>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Especifica el día</h4>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Selecciona el horario</h4>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Selecciona el grupo</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <div class="input-group date" data-provide="datepicker">
+                                                <input type="text" class="form-control">
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
                                             </div>
                                         </div>
-    
-                                        <div class="col-md-12">
-                                            <div class="">
-                                                <label class="form-label">Ingresa la hora de inicio</label>
-                                                <input id="event-start-date" type="text" class="form-control">
-                                            </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <select id="selectDay">
+                                                <option value="lunes">Lunes</option>
+                                                <option value="martes">Martes<option>
+                                                <option value="miercoles">Miércoles</option>
+                                                <option value="jueves">Jueves</option>
+                                                <option value="viernes">Viernes</option>
+                                            </select>
                                         </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <select id="selectSchedule">
+                                                <option value="8a9">08:00 - 09:00</option>
+                                                <option value="9a10">09:00 - 10:00</option>
+                                                <option value="10a11">10:00 - 11:00</option>
+                                                <option value="11a12">11:00 - 12:00</option>
+                                                <option value="12a13">12:00 - 13:00</option>
+                                                <option value="13a14">13:00 - 14:00</option>
+                                                <option value="14a15">14:00 - 15:00</option>
+                                                <option value="15a16">15:00 - 16:00</option>
+                                                <option value="16a17">16:00 - 17:00</option>
+                                                <option value="17a18">17:00 - 18:00</option>
+                                                <option value="18a19">18:00 - 19:00</option>
+                                                <option value="19a20">19:00 - 20:00</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <select id="selectGroup">
+                                                <option value="I1">I1</option>
+                                                <option value="7SA">7SA</option>
+                                                <option value="7SB">7SB</option>
+                                                <option value="7SC">7SC</option>
+                                                <option value="8SA">8SA</option>
+                                                <option value="8SB">8SB</option>
+                                                <option value="8SC">8SC</option>
+                                                <option value="9SA">9SA</option>
+                                                <option value="9SB">9SB</option>
+                                                <option value="9SC">9SC</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                        <div class="col-md-12">
-                                            <div class="">
-                                                <label class="form-label">Ingresa la hora de finalización</label>
-                                            </div>
+                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">                                
+                                    <div class="row">
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Selecciona la materia</h4>
                                         </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Selecciona al docente</h4>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Selecciona la cantidad de alumnos</h4>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Selecciona la carrera</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <select id="selectSubject"">
+                                                <option value="c" class="text-wrap">Ingeniería de software</option>
+                                                <option value="cpp" class="text-wrap">Gestión de proyectos de software</option>
+                                                <option value="java" class="text-wrap">Tópicos de ciencia de los datos</option>
+                                                <option value="php" class="text-wrap">Arquitectura de computadoras</option>
+                                                <option value="python" class="text-wrap">Conmutación y enrutamiento de redes</option>
+                                                <option value="dotNet" class="text-wrap">Desarrollo de software orientado a servicios</option>
+                                                <option value="html" class="text-wrap">HRedes de computadoras</option>
+                                                <option value="css" class="text-wrap">Lenguajes y autómatas I</option>
+                                                <option value="javascript" class="text-wrap">Lenguajes y autómatas II</option>
+                                                <option value="react" class="text-wrap">Lenguajes de interfaz</option>
+                                                <option value="angular" class="text-wrap">Sistemas programables</option>
+                                                <option value="svelt" class="text-wrap">Svelt</option>
+                                                <option value="vue" class="text-wrap">Vue</option>
+                                                <option value="node" class="text-wrap">Node</option>
+                                                <option value="wordpress" class="text-wrap">Wordpress</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <select id="selectProffesor">
+                                                <option value="Rafael Pérez Eva" class="text-wrap">Rafael Pérez Eva</option>
+                                                <option value="Castillejos Regalado Martha Elva" class="text-wrap">Castillejos Regalado Martha Elva<option>
+                                                <option value="Baños Solis Francisco Ricardo" class="text-wrap">Baños Solis Francisco Ricardo</option>
+                                                <option value="Martinez Nieto Adelina" class="text-wrap">Martinez Nieto Adelina</option>
+                                                <option value="Diaz Sarmiento Bibiana" class="text-wrap">Diaz Sarmiento Bibiana</option>
+                                                <option value="Hernandez Abrego Anayansi Cristina" class="text-wrap">Hernandez Abrego Anayansi Cristina</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <select id="selectStudents">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="24">23</option>
+                                                <option value="3">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                                <option value="28">28</option>
+                                                <option value="29">29</option>
+                                                <option value="30">30</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <select id="selectCareer">
+                                                <option value="Ingeniería en Sistemas Computacionales" class="text-wrap">Ingeniería en Sistemas Computacionales</option>
+                                                <option value="Ingeniería en Gestión Empresarial" class="text-wrap">Ingeniería en Gestión Empresarial</option>
+                                                <option value="Ingeniería Electrónica" class="text-wrap">Ingeniería Electrónica</option>
+                                                <option value="Ingeniería Electrica" class="text-wrap">Ingeniería Electrica</option>
+                                                <option value="Ingeniería Civil" class="text-wrap">Ingeniería Civil</option>
+                                                <option value="Ingeniería Industrial" class="text-wrap">Ingeniería Industrial</option>
+                                                <option value="Ingeniería Química" class="text-wrap">Ingeniería Química</option>
+                                                <option value="Ingeniería Mecánica" class="text-wrap">Ingeniería Mecánica</option>
+                                                <option value="Licenciatura en Administración de Empresas" class="text-wrap">Licenciatura en Administración de Empresas</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                        <div class="">
-                                            <select id="selectHoraFin">
+                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">                                
+                                    <div class="row">
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Selecciona el software a utilizar</h4>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <h4>Otro</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <select id="selectSoftware"">
                                                 <option value="VSCode">VSCode</option>
                                                 <option value="Android Studio">Android Studio</option>
                                                 <option value="IntelliJ IDEA">IntelliJ IDEA</option>
@@ -331,78 +489,60 @@
                                                 <option value="Otro">Otro</option>
                                             </select>
                                         </div>
-    
-                                        <div class="col-md-12">
-                                            <div class="">
-                                                <label class="form-label">Enter End Date</label>
-                                                <input id="event-end-date" type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-12">
-    
-                                            <div class="d-flex mt-4">
-                                                <div class="n-chk">
-                                                    <div class="form-check form-check-primary form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="event-level" value="Work" id="rwork">
-                                                        <label class="form-check-label" for="rwork">Work</label>
-                                                    </div>
-                                                </div>
-                                                <div class="n-chk">
-                                                    <div class="form-check form-check-warning form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="event-level" value="Travel" id="rtravel">
-                                                        <label class="form-check-label" for="rtravel">Travel</label>
-                                                    </div>
-                                                </div>
-                                                <div class="n-chk">
-                                                    <div class="form-check form-check-success form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="event-level" value="Personal" id="rPersonal">
-                                                        <label class="form-check-label" for="rPersonal">Personal</label>
-                                                    </div>
-                                                </div>
-                                                <div class="n-chk">
-                                                    <div class="form-check form-check-danger form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="event-level" value="Important" id="rImportant">
-                                                        <label class="form-check-label" for="rImportant">Important</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
+                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                            <input id="event-title" type="text" class="form-control">
                                         </div>
                                     </div>
-                                    
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-success btn-update-event" data-fc-event-public-id="">Update changes</button>
-                                    <button type="button" class="btn btn-primary btn-add-event">Agregar Práctica</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">                                
+                                    <div class="row">
+                                        <div class="text-center">
+                                            <h4>Una vez hayas terminado de editar da click en el botón</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content widget-content-area">
+                                    <div class="row">
+                                        <div class="text-center">
+                                            <button class="btn btn-primary" type="button">Terminar edición</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                
             </div>
+
 
             <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
-                    <p class="">Copyright © <span class="dynamic-year">2022</span> <a target="_blank" href="http://www.oaxaca.tecnm.mx/">Instituto Tecnológico de Oaxaca</a>, Todos los derechos reservados.</p>
+                    <p class="">Copyright © <span class="dynamic-year">2022</span> <a target="_blank" href="http://www.oaxaca.tecnm.mx/">Instituto Tecnológico de Oaxaca</a>. Todos los derechos reservados.</p>
                 </div>
                 <div class="footer-section f-section-2">
                     <p class="">Developed by Orlando Lucero</path></p>
                 </div>
             </div>
             <!--  END FOOTER  -->
+
+
         </div>
         <!--  END CONTENT AREA  -->
+
         
     </div>
     <!-- END MAIN CONTAINER -->
-
-    <!-- START GLOBAL MANDATORY SCRIPTS -->
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    
+    
+    
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="../src/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="../src/plugins/src/mousetrap/mousetrap.min.js"></script>
@@ -411,16 +551,9 @@
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    <script src="../src/plugins/src/fullcalendar/fullcalendar.min.js"></script>
-    <script src="../src/plugins/src/fullcalendar/locales/es.js"></script>
-    <script src="../src/plugins/src/uuid/uuid4.min.js"></script>
-    <!-- END PAGE LEVEL SCRIPTS -->
-    
-    <!--  BEGIN CUSTOM SCRIPTS FILE  -->
-    <script src="../src/plugins/src/fullcalendar/custom-fullcalendar.js"></script>
     <script src="../src/assets/js/scrollspyNav.js"></script>
     <script src="../src/plugins/src/vanillaSelectBox/vanillaSelectBox.js"></script>
     <script src="../src/plugins/src/vanillaSelectBox/custom-vanillaSelectBox.js"></script>
-    <!--  END CUSTOM SCRIPTS FILE  -->
+    <!-- END PAGE LEVEL SCRIPTS -->
 </body>
 </html>

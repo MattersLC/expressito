@@ -1,3 +1,43 @@
+/**
+ *     Execute something else for "Cancel".
+ */
+const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+})
+
+document.querySelector('.widget-content .warning.cancel').addEventListener('click', function() {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡No podrás revertir esta acción!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'No, cancelar',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            '¡Eliminado!',
+            'El registro ha sido eliminado.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            '¡Cancelado!',
+            'Tu registro está a salvo. :)',
+            'error'
+          )
+        }
+    })
+})
+
 // Basic message
 
 document.querySelector('.widget-content .message').addEventListener('click', function() {
@@ -131,45 +171,7 @@ document.querySelector('.widget-content .warning.confirm').addEventListener('cli
     })
 })
 
-/**
- *     Execute something else for "Cancel".
- */
-const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: 'btn btn-success',
-      cancelButton: 'btn btn-danger'
-    },
-    buttonsStyling: false
-})
 
-document.querySelector('.widget-content .warning.cancel').addEventListener('click', function() {
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire(
-            'Cancelled',
-            'Your imaginary file is safe :)',
-            'error'
-          )
-        }
-    })
-})
 
 /**
  *     RTL Support

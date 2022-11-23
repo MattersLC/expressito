@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var newDate = new Date();
 
     /** 
-     * 
-     * @getDynamicMonth() fn. is used to validate 2 digit number and act accordingly 
-     * 
+     * @getDynamicMonth() fn. is used to validate 2 digit number and act accordingly
     */    
     function getDynamicMonth() {
         getMonthValue = newDate.getMonth();
@@ -55,66 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
             start: `${newDate.getFullYear()}-${getDynamicMonth()}-01`,
             extendedProps: { calendar: 'Work' }
         },
-        {
-            id: 2,
-            title: 'Long Event',
-            start: `${newDate.getFullYear()}-${getDynamicMonth()}-07`,
-            end: `${newDate.getFullYear()}-${getDynamicMonth()}-10`,
-            extendedProps: { calendar: 'Personal' }
-        },
-        {
-            groupId: '999',
-            id: 3,
-            title: 'Repeating Event',
-            start: `${newDate.getFullYear()}-${getDynamicMonth()}-09T16:00:00`,
-            extendedProps: { calendar: 'Important' }
-        },
-        {
-            groupId: '999',
-            id: 4,
-            title: 'Repeating Event',
-            start: `${newDate.getFullYear()}-${getDynamicMonth()}-16T16:00:00`,
-            extendedProps: { calendar: 'Travel' }
-        },
-        {
-            id: 5,
-            title: 'Conference',
-            start: `${newDate.getFullYear()}-${getDynamicMonth()}-11`,
-            end: `${newDate.getFullYear()}-${getDynamicMonth()}-13`,
-            extendedProps: { calendar: 'Work' }
-        },
-        {
-            id: 6,
-            title: 'Meeting',
-            start: `${newDate.getFullYear()}-${getDynamicMonth()}-12T10:30:00`,
-            end: `${newDate.getFullYear()}-${getDynamicMonth()}-12T12:30:00`,
-            extendedProps: { calendar: 'Personal' }
-        },
-        {
-            id: 7,
-            title: 'Lunch',
-            start: `${newDate.getFullYear()}-${getDynamicMonth()}-12T12:00:00`,
-            extendedProps: { calendar: 'Important' }
-        },
-        {
-            id: 8,
-            title: 'Meeting',
-            start: `${newDate.getFullYear()}-${getDynamicMonth()}-12T14:30:00`,
-            extendedProps: { calendar: 'Travel' }
-        },
-        {
-            id: 9,
-            title: 'Birthday Party',
-            start: `${newDate.getFullYear()}-${getDynamicMonth()}-13T07:00:00`,
-            extendedProps: { calendar: 'Personal' }
-        },
-        {
-            id: 10,
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: `${newDate.getFullYear()}-${getDynamicMonth()}-28`,
-            extendedProps: { calendar: 'Important' }
-        }
     ]
     
     // Calendar Select fn.
@@ -176,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         customButtons: {
             addEventButton: {
-                text: 'Add Event',
+                text: 'Agregar práctica',
                 click: calendarAddEvent
             }
         },
