@@ -62,7 +62,8 @@ body.dark .auth-overlay {
   top: 0;
   height: 100%;
   border-radius: inherit;
-  background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, rgba(255, 19, 97, 0.75) 100%);
+  background-image: linear-gradient(-225deg, #0853b4 0%, #3556b1 29%, rgba(151, 213, 238, 0.75) 100%);
+  /*background-image: linear-gradient(-225deg, #448dee 0%, #0430a8 29%, rgba(78, 108, 243, 0.75) 100%);*/
   width: 55%;
 }
 body.dark .opt-input {
