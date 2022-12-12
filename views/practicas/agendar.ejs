@@ -141,7 +141,7 @@
                 <ul class="list-unstyled menu-categories" id="accordionExample">
                     <br>
                     <li class="menu">
-                        <a href="./practicas"  aria-expanded="false" class="dropdown-toggle">
+                        <a href="../practicas"  aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                                 <span>Inicio</span>
@@ -321,12 +321,15 @@
                                                             <div class="widget-content widget-content-area">
                                                                 <!--li><a href="./editar" class="bs-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" data-original-title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 p-1 br-8 mb-1"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></a></li-->
                                                                 <!--li><a href="javascript:void(0);" class="bs-tooltip warning cancel" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash p-1 br-8 mb-1"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a></li-->
-                                                                <form class="form-inline" method="get" action="./editar<%= practicas[practica].id %>">
-                                                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                                                <!--form class="form-inline" method="get" action="./editar< practicas[practica].id %>"-->
+                                                                <li><a href="./editar<%= practicas[practica].id %>" type="submit" class="bs-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" data-original-title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 p-1 br-8 mb-1"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></a></li>
+                                                                <form method="post" action="/practicas/eliminar/<%= practicas[practica].id %>">
+                                                                    <li><a method="post" href="/practicas/eliminar/<%= practicas[practica].id %>" type="submit" class="bs-tooltip warning cancel" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash p-1 br-8 mb-1"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a></li>
+                                                                    <!--button class="btn btn-primary" type="submit">Edit</button-->
                                                                 </form>
-                                                                <form class="form-inline" method="post" action="/practicas/eliminar/<%= practicas[practica].id %>">
+                                                                <!--form class="form-inline" method="post" action="/practicas/eliminar/< practicas[practica].id %>">
                                                                     <button class="btn btn-danger" type="submit">Del</button>
-                                                                </form>
+                                                                </form-->
                                                             </div>
                                                         </ul>
                                                     </td>

@@ -6,13 +6,21 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-handlebars": "^6.0.6",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.6.15"
   }
 }

@@ -1,3 +1,10 @@
+// Error
+document.querySelector('.widget-content .icon-error').addEventListener('click', function() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Icon Error',
+    })
+})
 /**
  *     Execute something else for "Cancel".
  */
@@ -225,12 +232,12 @@ document.querySelector('.widget-content .icon-success').addEventListener('click'
 })
 
 // Error
-document.querySelector('.widget-content .icon-error').addEventListener('click', function() {
+/*document.querySelector('.widget-content .icon-error').addEventListener('click', function() {
     Swal.fire({
         icon: 'error',
         title: 'Icon Error',
     })
-})
+})*/
 
 // Warning
 document.querySelector('.widget-content .icon-warning').addEventListener('click', function() {

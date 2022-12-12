@@ -3,34 +3,53 @@ var practica = require("../model/practica");
 
 module.exports={
     index:function (req,res) {
-        practica.obtener(conexion,function(err,datos) {
-            console.log(datos);
-            res.render('practicas/index',{title:'Aplicación', practicas:datos});
-        });
+        if(req.session.loggedin) {
+            res.render('practicas/index');
+        } else {
+            res.redirect('/');
+        }
     },
 
     agendar:function (req,res) {
-        practica.obtener(conexion,function(err,datos) {
-            console.log(datos);
-            res.render('practicas/agendar',{title:'Aplicación', practicas:datos});
-        });
-        //res.render('practicas/agendar');
+        if(req.session.loggedin) {
+            practica.obtener(conexion,function(err,datos) {
+                res.render('practicas/agendar', {practicas:datos});
+            });
+        } else {
+            res.redirect('/');
+        }
     },
 
-    nueva_practica:function(re,res) {
-        res.render('practicas/nueva-practica');
+    nueva_practica:function(req,res) {
+        if(req.session.loggedin) {
+            res.render('practicas/nueva-practica');
+        } else {
+            res.redirect('/');
+        }
     },
 
     chat:function (req,res) {
-        res.render('practicas/chat');
+        if(req.session.loggedin) {
+            res.render('practicas/chat');
+        } else {
+            res.redirect('/');
+        }
     },
 
     notas:function (req,res) {
-        res.render('practicas/notas');
+        if(req.session.loggedin) {
+            res.render('practicas/notas');
+        } else {
+            res.redirect('/');
+        }
     },
     
     escaner:function (req,res) {
-        res.render('practicas/escaner');
+        if(req.session.loggedin) {
+            res.render('practicas/escaner');
+        } else {
+            res.redirect('/');
+        }
     },
 
     eliminar:function (req,res) {
@@ -39,7 +58,7 @@ module.exports={
 
         practica.retornarDatosID(conexion, req.params.id, function(err,registros) {
             practica.borrar(conexion, req.params.id, function(err){
-                 res.redirect('/practicas/agendar');
+                 res.redirect('../agendar');
             });
         });
     },
