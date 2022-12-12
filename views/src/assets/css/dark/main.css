@@ -1189,9 +1189,9 @@ body.dark .btn-group.open .btn-primary.dropdown-toggle {
 }
 body.dark .btn-secondary {
   color: #fff !important;
-  background-color: #805dca;
-  border-color: #805dca;
-  box-shadow: 0 10px 20px -10px rgba(92, 26, 195, 0.59);
+  background-color: #1751cf;
+  border-color: #764fc9;
+  box-shadow: 0 10px 20px -10px rgba(13, 62, 197, 0.59);
 }
 body.dark .btn-secondary:hover, body.dark .btn-secondary:focus {
   color: #fff !important;
