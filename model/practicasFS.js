@@ -1,20 +1,7 @@
-const mongoose = require('mongoose')
+const db = require('../config/firebase');
 
-const UserScheme = new mongoose.Schema({
-    name: {
-        type: String
+module.exports={
+    getAll: function (conexion,funcion) {
+        conexion.query("SELECT * FROM usuarios", funcion);
     },
-    age: {
-        type: Number
-    },
-    email: {
-        type: String
-    }
-},
-    {
-        timestamps: true,
-        versionKey: false
-    }
-)
-
-module.exports = mongoose.model('usuarios', UserScheme)
+}
