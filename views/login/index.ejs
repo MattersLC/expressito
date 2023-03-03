@@ -38,11 +38,9 @@
         $(document).ready(function () {
           if ("<%= alert %>" === "true") {
             var alertTitle = "<%= alertTitle %>"
-            var alertMessage = "<%= alertMessage %>"
             Swal.fire({
                 icon: 'error',
                 title: alertTitle,
-                text: alertMessage,
             })
           }
         })

@@ -6,11 +6,11 @@ const usuarios = require("../model/usuarios");
 
 module.exports={
     login:function (req,res) {
-        res.render('login/index', { alert: false, alertTitle: 'Oops!', alertMessage: "Correo o contraseña incorrectos" });
+        res.render('login/index', { alert: false, alertTitle: '¡Correo o contraseña incorrectos!' });
     },
 
     signup:function (req,res) {
-        res.render('login/signup', { alert: false, alertTitle: 'Oops!', alertMessage: "El usuario ya existe" });
+        res.render('login/signup', { alert: false, alertTitle: '¡El usuario ya existe!' });
     },
 
     register:function(req,res) {
@@ -22,7 +22,7 @@ module.exports={
         usuarios.getUser(conexion, [data.email], function(err, userdata) {
             if(userdata.length > 0 ) {
                 console.log('Ya existe este usuario');
-                res.render('login/signup', { alert: true, alertTitle: 'Oops!', alertMessage: "El usuario ya existe" });
+                res.render('login/signup', { alert: true, alertTitle: '¡El usuario ya existe!' });
             } else {
                 bcrypt.hash(data.password, 12).then(hash => {
                     data.password = hash;
@@ -48,7 +48,7 @@ module.exports={
                 userdata.forEach(element => {
                     bcrypt.compare(password, element.password, (err,isMatch) => {
                         if(!isMatch) {
-                            res.render('./login/', { alert: true, alertTitle: 'Oops!', alertMessage: "¡Contraseña incorrecta!" });
+                            res.render('./login/', { alert: true, alertTitle: '¡Contraseña incorrecta!'});
                         } else {
                             // Authenticate the user
                             req.session.loggedin = true;
@@ -60,31 +60,7 @@ module.exports={
                 });
             })
         } else {
-            res.render('./login/', { alert: true, alertTitle: 'Oops!', alertMessage: "¡Escribe tu correo y contraseña!" });
+            res.render('./login/', { alert: true, alertTitle: '¡Escribe tu correo y contraseña!' });
         }
-
-        // Ensure the input fields exists and are not empty
-        /*if (email && password) {
-            // Execute SQL query that'll select the account from the database based on the specified username and password
-            usuarios.authUser(conexion, [email, password], function(error, results, fields) {
-                // If there is an issue with the query, output the error
-                if (error) throw error;
-                // If the account exists
-                if (results.length > 0) {
-                    // Authenticate the user
-                    req.session.loggedin = true;
-                    req.session.email = email;
-                    // Redirect to home page
-                    res.redirect('../practicas/');
-                } else {
-                    res.render('./login/', { alert: true, alertTitle: 'Oops!', alertMessage: "Correo o contraseña incorrectos" });
-                    //res.send('Correo o contraseña incorrectos');
-                }			
-                res.end();
-            });
-        } else {
-            res.send('Please enter Username and Password!');
-            res.end();
-        }*/
     }
 }

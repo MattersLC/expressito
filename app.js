@@ -1,14 +1,11 @@
-//const createError = require('http-errors');
 const express = require('express');
 const { engine } = require('express-handlebars');
-const myconnection = require('express-myconnection');
-const mysql = require('mysql');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const { check, validationResult } = require('express-validator')
 const logger = require('morgan');
+const createError = require('http-errors');
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
@@ -30,14 +27,6 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-/*app.use(myconnection(mysql, {
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  port: 3307,
-  database: 'centro_de_computo'
-}));*/
-
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -45,14 +34,12 @@ app.use(session({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use(express.static('./views'));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/users', usersRouter);
 app.use('/practicas', practicasRouter);
-//app.use('/agendar-practica', practicasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

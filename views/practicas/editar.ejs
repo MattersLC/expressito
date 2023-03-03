@@ -272,251 +272,248 @@
                 <div class="middle-content container-xxl p-0">
 
                     <div class="row layout-top-spacing">
-
-                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                            <div class="statbox widget box box-shadow">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Elemento actual</h4>
-                                        <h6>[<%= practica.id %>] - [<%= practica.fecha %>] - [<%= practica.dia %>] - [<%= practica.horario %>] - [<%= practica.grupo %>] - [<%= practica.materia %>] [<%= practica.docente %>] [<%= practica.alumnos %>] [<%= practica.carrera %>] [<%= practica.software %>]</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                            <div class="statbox widget box box-shadow">
-                                <div class="widget-header">                                
-                                    <div class="row">
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Selecciona la fecha</h4>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Especifica el día</h4>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Selecciona el horario</h4>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Selecciona el grupo</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="widget-content widget-content-area">
-                                    <div class="row">
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <!--div class="input-group date" data-provide="datepicker">
-                                                <input type="text" class="form-control">
-                                                <div class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-th"></span>
-                                                </div>
-                                            </div-->
-                                            <input type="date">
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <select id="selectDay">
-                                                <option value="lunes">Lunes</option>
-                                                <option value="martes">Martes<option>
-                                                <option value="miercoles">Miércoles</option>
-                                                <option value="jueves">Jueves</option>
-                                                <option value="viernes">Viernes</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <select id="selectSchedule">
-                                                <option value="8a9">08:00 - 09:00</option>
-                                                <option value="9a10">09:00 - 10:00</option>
-                                                <option value="10a11">10:00 - 11:00</option>
-                                                <option value="11a12">11:00 - 12:00</option>
-                                                <option value="12a13">12:00 - 13:00</option>
-                                                <option value="13a14">13:00 - 14:00</option>
-                                                <option value="14a15">14:00 - 15:00</option>
-                                                <option value="15a16">15:00 - 16:00</option>
-                                                <option value="16a17">16:00 - 17:00</option>
-                                                <option value="17a18">17:00 - 18:00</option>
-                                                <option value="18a19">18:00 - 19:00</option>
-                                                <option value="19a20">19:00 - 20:00</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <select id="selectGroup">
-                                                <option value="I1">I1</option>
-                                                <option value="7SA">7SA</option>
-                                                <option value="7SB">7SB</option>
-                                                <option value="7SC">7SC</option>
-                                                <option value="8SA">8SA</option>
-                                                <option value="8SB">8SB</option>
-                                                <option value="8SC">8SC</option>
-                                                <option value="9SA">9SA</option>
-                                                <option value="9SB">9SB</option>
-                                                <option value="9SC">9SC</option>
-                                            </select>
+                        <form action="" method="post">
+                            <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                                <div class="statbox widget box box-shadow">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Elemento actual</h4>
+                                            <h6 id="originalData" class="form-control" name="originalData">[<%= practica.id %>] - [<%= practica.fecha %>] - [<%= practica.dia %>] - [<%= practica.horario %>] - [<%= practica.grupo %>] - [<%= practica.materia %>] [<%= practica.docente %>] [<%= practica.alumnos %>] [<%= practica.carrera %>] [<%= practica.software %>]</h6>
+                                            <input type="hidden" name="id" value="<%= practica.id %>">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                            <div class="statbox widget box box-shadow">
-                                <div class="widget-header">                                
-                                    <div class="row">
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Selecciona la materia</h4>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Selecciona al docente</h4>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Selecciona la cantidad de alumnos</h4>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Selecciona la carrera</h4>
+                        <!--form action="" method="post"-->
+                            <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                                <div class="statbox widget box box-shadow">
+                                    <div class="widget-header">                                
+                                        <div class="row">
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Selecciona la fecha</h4>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Especifica el día</h4>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Selecciona el horario</h4>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Selecciona el grupo</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="widget-content widget-content-area">
-                                    <div class="row">
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <select id="selectSubject"">
-                                                <option value="c" class="text-wrap">Ingeniería de software</option>
-                                                <option value="cpp" class="text-wrap">Gestión de proyectos de software</option>
-                                                <option value="java" class="text-wrap">Tópicos de ciencia de los datos</option>
-                                                <option value="php" class="text-wrap">Arquitectura de computadoras</option>
-                                                <option value="python" class="text-wrap">Conmutación y enrutamiento de redes</option>
-                                                <option value="dotNet" class="text-wrap">Desarrollo de software orientado a servicios</option>
-                                                <option value="html" class="text-wrap">HRedes de computadoras</option>
-                                                <option value="css" class="text-wrap">Lenguajes y autómatas I</option>
-                                                <option value="javascript" class="text-wrap">Lenguajes y autómatas II</option>
-                                                <option value="react" class="text-wrap">Lenguajes de interfaz</option>
-                                                <option value="angular" class="text-wrap">Sistemas programables</option>
-                                                <option value="svelt" class="text-wrap">Svelt</option>
-                                                <option value="vue" class="text-wrap">Vue</option>
-                                                <option value="node" class="text-wrap">Node</option>
-                                                <option value="wordpress" class="text-wrap">Wordpress</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <select id="selectProffesor">
-                                                <option value="Rafael Pérez Eva" class="text-wrap">Rafael Pérez Eva</option>
-                                                <option value="Castillejos Regalado Martha Elva" class="text-wrap">Castillejos Regalado Martha Elva<option>
-                                                <option value="Baños Solis Francisco Ricardo" class="text-wrap">Baños Solis Francisco Ricardo</option>
-                                                <option value="Martinez Nieto Adelina" class="text-wrap">Martinez Nieto Adelina</option>
-                                                <option value="Diaz Sarmiento Bibiana" class="text-wrap">Diaz Sarmiento Bibiana</option>
-                                                <option value="Hernandez Abrego Anayansi Cristina" class="text-wrap">Hernandez Abrego Anayansi Cristina</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <select id="selectStudents">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
-                                                <option value="15">15</option>
-                                                <option value="16">16</option>
-                                                <option value="17">17</option>
-                                                <option value="18">18</option>
-                                                <option value="19">19</option>
-                                                <option value="20">20</option>
-                                                <option value="21">21</option>
-                                                <option value="22">22</option>
-                                                <option value="24">23</option>
-                                                <option value="3">24</option>
-                                                <option value="25">25</option>
-                                                <option value="26">26</option>
-                                                <option value="27">27</option>
-                                                <option value="28">28</option>
-                                                <option value="29">29</option>
-                                                <option value="30">30</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <select id="selectCareer">
-                                                <option value="Ingeniería en Sistemas Computacionales" class="text-wrap">Ingeniería en Sistemas Computacionales</option>
-                                                <option value="Ingeniería en Gestión Empresarial" class="text-wrap">Ingeniería en Gestión Empresarial</option>
-                                                <option value="Ingeniería Electrónica" class="text-wrap">Ingeniería Electrónica</option>
-                                                <option value="Ingeniería Electrica" class="text-wrap">Ingeniería Electrica</option>
-                                                <option value="Ingeniería Civil" class="text-wrap">Ingeniería Civil</option>
-                                                <option value="Ingeniería Industrial" class="text-wrap">Ingeniería Industrial</option>
-                                                <option value="Ingeniería Química" class="text-wrap">Ingeniería Química</option>
-                                                <option value="Ingeniería Mecánica" class="text-wrap">Ingeniería Mecánica</option>
-                                                <option value="Licenciatura en Administración de Empresas" class="text-wrap">Licenciatura en Administración de Empresas</option>
-                                            </select>
+                                    <div class="widget-content widget-content-area">
+                                        <div class="row">
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <!--div class="input-group date" data-provide="datepicker">
+                                                    <input type="text" class="form-control">
+                                                    <div class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-th"></span>
+                                                    </div>
+                                                </div-->
+                                                <input type="date" class="form-control" name="fecha" required>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <select id="selectDay" class="form-control" name="dia" required>
+                                                    <option>Lunes</option>
+                                                    <option>Martes</option>
+                                                    <option>Miércoles</option>
+                                                    <option>Jueves</option>
+                                                    <option>Viernes</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <select id="selectSchedule" class="form-control" name="horario" required>
+                                                    <option>08:00 - 09:00</option>
+                                                    <option>09:00 - 10:00</option>
+                                                    <option>10:00 - 11:00</option>
+                                                    <option>11:00 - 12:00</option>
+                                                    <option>12:00 - 13:00</option>
+                                                    <option>13:00 - 14:00</option>
+                                                    <option>14:00 - 15:00</option>
+                                                    <option>15:00 - 16:00</option>
+                                                    <option>16:00 - 17:00</option>
+                                                    <option>17:00 - 18:00</option>
+                                                    <option>18:00 - 19:00</option>
+                                                    <option>19:00 - 20:00</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <select id="selectGroup" class="form-control" name="grupo" required>
+                                                    <option>I1</option>
+                                                    <option>7SA</option>
+                                                    <option>7SB</option>
+                                                    <option>7SC</option>
+                                                    <option>8SA</option>
+                                                    <option>8SB</option>
+                                                    <option>8SC</option>
+                                                    <option>9SA</option>
+                                                    <option>9SB</option>
+                                                    <option>9SC</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                            <div class="statbox widget box box-shadow">
-                                <div class="widget-header">                                
-                                    <div class="row">
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Selecciona el software a utilizar</h4>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <h4>Otro</h4>
+    
+                            <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                                <div class="statbox widget box box-shadow">
+                                    <div class="widget-header">                                
+                                        <div class="row">
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Selecciona la materia</h4>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Selecciona al docente</h4>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Selecciona la cantidad de alumnos</h4>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Selecciona la carrera</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="widget-content widget-content-area">
-                                    <div class="row">
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <select id="selectSoftware"">
-                                                <option value="VSCode">VSCode</option>
-                                                <option value="Android Studio">Android Studio</option>
-                                                <option value="IntelliJ IDEA">IntelliJ IDEA</option>
-                                                <option value="NetBeans">NetBeans</option>
-                                                <option value="PyCharm">PyCharm</option>
-                                                <option value="Workbench">Workbench</option>
-                                                <option value="XAMPP">XAMPP</option>
-                                                <option value="Oracle">Oracle</option>
-                                                <option value="Ubuntu">Ubuntu</option>
-                                                <option value="Ubuntu server">Ubuntu server</option>
-                                                <option value="vue">Vue</option>
-                                                <option value="Node">Node</option>
-                                                <option value="Express.js">Express.js</option>
-                                                <option value="Otro">Otro</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3 col-sm-3 col-3">
-                                            <input id="event-title" type="text" class="form-control">
+                                    <div class="widget-content widget-content-area">
+                                        <div class="row">
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <select id="selectSubject" class="form-control" name="materia" required>
+                                                    <option class="text-wrap">Ingeniería de software</option>
+                                                    <option class="text-wrap">Gestión de proyectos de software</option>
+                                                    <option class="text-wrap">Tópicos de ciencia de los datos</option>
+                                                    <option class="text-wrap">Arquitectura de computadoras</option>
+                                                    <option class="text-wrap">Conmutación y enrutamiento de redes</option>
+                                                    <option class="text-wrap">Desarrollo de software orientado a servicios</option>
+                                                    <option class="text-wrap">Redes de computadoras</option>
+                                                    <option class="text-wrap">Lenguajes y autómatas I</option>
+                                                    <option class="text-wrap">Lenguajes y autómatas II</option>
+                                                    <option class="text-wrap">Lenguajes de interfaz</option>
+                                                    <option class="text-wrap">Sistemas programables</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <select id="selectProffesor" class="form-control" name="docente" required>
+                                                    <option class="text-wrap">Rafael Pérez Eva</option>
+                                                    <option class="text-wrap">Castillejos Regalado Martha Elva</option>
+                                                    <option class="text-wrap">Baños Solis Francisco Ricardo</option>
+                                                    <option class="text-wrap">Martinez Nieto Adelina</option>
+                                                    <option class="text-wrap">Diaz Sarmiento Bibiana</option>
+                                                    <option class="text-wrap">Hernandez Abrego Anayansi Cristina</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <select id="selectStudents" class="form-control" name="alumnos" required>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                    <option>24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <select id="selectCareer" class="form-control" name="carrera" required>
+                                                    <option class="text-wrap">Ingeniería en Sistemas Computacionales</option>
+                                                    <option class="text-wrap">Ingeniería en Gestión Empresarial</option>
+                                                    <option class="text-wrap">Ingeniería Electrónica</option>
+                                                    <option class="text-wrap">Ingeniería Electrica</option>
+                                                    <option class="text-wrap">Ingeniería Civil</option>
+                                                    <option class="text-wrap">Ingeniería Industrial</option>
+                                                    <option class="text-wrap">Ingeniería Química</option>
+                                                    <option class="text-wrap">Ingeniería Mecánica</option>
+                                                    <option class="text-wrap">Licenciatura en Administración de Empresas</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                            <div class="statbox widget box box-shadow">
-                                <div class="widget-header">                                
-                                    <div class="row">
-                                        <div class="text-center">
-                                            <h4>Una vez hayas terminado de editar da click en el botón</h4>
+    
+                            <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                                <div class="statbox widget box box-shadow">
+                                    <div class="widget-header">                                
+                                        <div class="row">
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Selecciona el software a utilizar</h4>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <h4>Otro</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="widget-content widget-content-area">
-                                    <div class="row">
-                                        <div class="text-center">
-                                            <button class="btn btn-primary" type="button">Terminar edición</button>
+                                    <div class="widget-content widget-content-area">
+                                        <div class="row">
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <select id="selectSoftware" class="form-control" name="software" required>
+                                                    <option>VSCode</option>
+                                                    <option>Android Studio</option>
+                                                    <option>IntelliJ IDEA</option>
+                                                    <option>NetBeans</option>
+                                                    <option>PyCharm</option>
+                                                    <option>Workbench</option>
+                                                    <option>XAMPP</option>
+                                                    <option>Oracle</option>
+                                                    <option>Ubuntu</option>
+                                                    <option>Ubuntu server</option>
+                                                    <option>Vue</option>
+                                                    <option>Node</option>
+                                                    <option>Express.js</option>
+                                                    <option>Otro</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                                <input id="event-title" type="text" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
+    
+                            <div id="basic" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                                <div class="statbox widget box box-shadow">
+                                    <div class="widget-header">                                
+                                        <div class="row">
+                                            <div class="text-center">
+                                                <h4>Una vez hayas terminado de editar da click en el botón</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-content widget-content-area">
+                                        <div class="row">
+                                            <div class="text-center">
+                                                <button class="btn btn-primary" type="submit">Terminar edición</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>     
+                        </form>
                     </div>
                 </div>
             </div>
@@ -525,10 +522,10 @@
             <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
-                    <p class="">Copyright © <span class="dynamic-year">2022</span> <a target="_blank" href="http://www.oaxaca.tecnm.mx/">Instituto Tecnológico de Oaxaca</a>. Todos los derechos reservados.</p>
+                    <p class="">Copyright © <span class="dynamic-year">2023</span> <a target="_blank" href="http://www.oaxaca.tecnm.mx/">Instituto Tecnológico de Oaxaca</a>. Todos los derechos reservados.</p>
                 </div>
                 <div class="footer-section f-section-2">
-                    <p class="">Developed by Orlando Lucero</path></p>
+                    <p class="">Developed by ExpressITO</p>
                 </div>
             </div>
             <!--  END FOOTER  -->

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>ITO - Agenda </title>
+    <title>Nueva práctica</title>
     <link rel="icon" type="image/x-icon" href="../src/assets/img/favicon.ico"/>
     <link href="../layouts/vertical-dark-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
     <link href="../layouts/vertical-dark-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
@@ -13,6 +13,8 @@
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
     <link href="../src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script-->
+    <link rel="stylesheet" href="../src/plugins/src/sweetalerts2/sweetalerts2.css">
     <link href="../layouts/vertical-dark-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
     <link href="../layouts/vertical-dark-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
@@ -22,9 +24,11 @@
 
     <link href="../src/plugins/css/light/fullcalendar/custom-fullcalendar.css" rel="stylesheet" type="text/css" />
     <link href="../src/assets/css/light/components/modal.css" rel="stylesheet" type="text/css">
+    <link href="../src/plugins/css/light/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css" />
 
     <link href="../src/plugins/css/dark/fullcalendar/custom-fullcalendar.css" rel="stylesheet" type="text/css" />
     <link href="../src/assets/css/dark/components/modal.css" rel="stylesheet" type="text/css">
+    <link href="../src/plugins/css/dark/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL STYLE -->
 
 </head>
@@ -35,6 +39,23 @@
         <div class="spinner-grow align-self-center"></div>
     </div></div></div>
     <!--  END LOADER -->
+
+    
+    <script>
+        window.onload = function() {
+          // obtener la fecha actual
+          let fechaActual = new Date();
+    
+          // crear una cadena de fecha en el formato deseado
+          let dia = fechaActual.getDate();
+          let mes = fechaActual.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+          let anio = fechaActual.getFullYear().toString().substr(-2); // Obtener los últimos dos dígitos del año
+          let fecha = (dia < 10 ? '0' + dia : dia) + '/' + (mes < 10 ? '0' + mes : mes) + '/' + anio;
+    
+          // establecer la fecha actual como valor predeterminado en el campo de entrada de fecha
+          document.getElementById('actualDate').value = fecha;
+        }
+    </script>
 
     <!--  BEGIN NAVBAR  -->
     <div class="header-container container-xxl">
@@ -286,97 +307,180 @@
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Agregar Práctica</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-    
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class=""/>
-                                                <label class="form-label">Ingresa la fecha</label>
-                                                <input id="event-title" type="text" class="form-control">
+                                <form action="" method="post">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Agregar Práctica</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label class="form-label">Fecha de la práctica</label>
+                                                    <input id="actualDate" type="text" class="form-control" name="fecha" id="fecha" required>
+                                                </div>
                                             </div>
-                                        </div>
-    
-                                        <div class="col-md-12">
-                                            <div class="">
-                                                <label class="form-label">Ingresa la hora de inicio</label>
-                                                <input id="event-start-date" type="text" class="form-control">
+        
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label class="form-label">Selecciona el horario de la práctica</label>
+                                                    <select id="selectSchedule" class="form-control" name="horario" required>
+                                                        <option>08:00 - 09:00</option>
+                                                        <option>09:00 - 10:00</option>
+                                                        <option>10:00 - 11:00</option>
+                                                        <option>11:00 - 12:00</option>
+                                                        <option>12:00 - 13:00</option>
+                                                        <option>13:00 - 14:00</option>
+                                                        <option>14:00 - 15:00</option>
+                                                        <option>15:00 - 16:00</option>
+                                                        <option>16:00 - 17:00</option>
+                                                        <option>17:00 - 18:00</option>
+                                                        <option>18:00 - 19:00</option>
+                                                        <option>19:00 - 20:00</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="">
-                                                <label class="form-label">Ingresa la hora de finalización</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="">
-                                            <select id="selectHoraFin">
-                                                <option value="VSCode">VSCode</option>
-                                                <option value="Android Studio">Android Studio</option>
-                                                <option value="IntelliJ IDEA">IntelliJ IDEA</option>
-                                                <option value="NetBeans">NetBeans</option>
-                                                <option value="PyCharm">PyCharm</option>
-                                                <option value="Workbench">Workbench</option>
-                                                <option value="XAMPP">XAMPP</option>
-                                                <option value="Oracle">Oracle</option>
-                                                <option value="Ubuntu">Ubuntu</option>
-                                                <option value="Ubuntu server">Ubuntu server</option>
-                                                <option value="vue">Vue</option>
-                                                <option value="Node">Node</option>
-                                                <option value="Express.js">Express.js</option>
-                                                <option value="Otro">Otro</option>
-                                            </select>
-                                        </div>
     
-                                        <div class="col-md-12">
-                                            <div class="">
-                                                <label class="form-label">Enter End Date</label>
-                                                <input id="event-end-date" type="text" class="form-control">
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label class="form-label">Selecciona el grupo</label>
+                                                    <select id="selectGroup" class="form-control" name="grupo" required>
+                                                        <option>I1</option>
+                                                        <option>7SA</option>
+                                                        <option>7SB</option>
+                                                        <option>7SC</option>
+                                                        <option>8SA</option>
+                                                        <option>8SB</option>
+                                                        <option>8SC</option>
+                                                        <option>9SA</option>
+                                                        <option>9SB</option>
+                                                        <option value="9SC">9SC</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label class="form-label">Selecciona la materia</label>
+                                                    <select id="selectSubject" class="form-control" name="materia" required>
+                                                        <option class="text-wrap">Ingeniería de software</option>
+                                                        <option class="text-wrap">Gestión de proyectos de software</option>
+                                                        <option class="text-wrap">Tópicos de ciencia de los datos</option>
+                                                        <option class="text-wrap">Arquitectura de computadoras</option>
+                                                        <option class="text-wrap">Conmutación y enrutamiento de redes</option>
+                                                        <option class="text-wrap">Desarrollo de software orientado a servicios</option>
+                                                        <option class="text-wrap">Redes de computadoras</option>
+                                                        <option class="text-wrap">Lenguajes y autómatas I</option>
+                                                        <option class="text-wrap">Lenguajes y autómatas II</option>
+                                                        <option class="text-wrap">Lenguajes de interfaz</option>
+                                                        <option class="text-wrap">Sistemas programables</option>
+                                                        <option class="text-wrap">Svelt</option>
+                                                        <option class="text-wrap">Vue</option>
+                                                        <option class="text-wrap">Node</option>
+                                                        <option class="text-wrap">Wordpress</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+        
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label class="form-label">Selecciona al docente</label>
+                                                    <select id="selectProffesor" class="form-control" name="docente" required>
+                                                        <option class="text-wrap">Rafael Pérez Eva</option>
+                                                        <option class="text-wrap">Castillejos Regalado Martha Elva<option>
+                                                        <option class="text-wrap">Baños Solis Francisco Ricardo</option>
+                                                        <option class="text-wrap">Martinez Nieto Adelina</option>
+                                                        <option class="text-wrap">Diaz Sarmiento Bibiana</option>
+                                                        <option class="text-wrap">Hernandez Abrego Anayansi Cristina</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label class="form-label">Selecciona la cantidad de alumnos</label>
+                                                    <select id="selectStudents" class="form-control" name="alumnos" required>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                        <option>11</option>
+                                                        <option>12</option>
+                                                        <option>13</option>
+                                                        <option>14</option>
+                                                        <option>15</option>
+                                                        <option>16</option>
+                                                        <option>17</option>
+                                                        <option>18</option>
+                                                        <option>19</option>
+                                                        <option>20</option>
+                                                        <option>22</option>
+                                                        <option>23</option>
+                                                        <option>24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                        <option value="30">30</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label class="form-label">Selecciona la carrera</label>
+                                                    <select id="selectCareer" class="form-control" name="carrera" required>
+                                                        <option value="Ingeniería en Sistemas Computacionales" class="text-wrap">Ingeniería en Sistemas Computacionales</option>
+                                                        <option value="Ingeniería en Gestión Empresarial" class="text-wrap">Ingeniería en Gestión Empresarial</option>
+                                                        <option value="Ingeniería Electrónica" class="text-wrap">Ingeniería Electrónica</option>
+                                                        <option value="Ingeniería Electrica" class="text-wrap">Ingeniería Electrica</option>
+                                                        <option value="Ingeniería Civil" class="text-wrap">Ingeniería Civil</option>
+                                                        <option value="Ingeniería Industrial" class="text-wrap">Ingeniería Industrial</option>
+                                                        <option value="Ingeniería Química" class="text-wrap">Ingeniería Química</option>
+                                                        <option value="Ingeniería Mecánica" class="text-wrap">Ingeniería Mecánica</option>
+                                                        <option value="Licenciatura en Administración de Empresas" class="text-wrap">Licenciatura en Administración de Empresas</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label class="form-label">Selecciona el software a utilizar</label>
+                                                    <select id="selectSoftware" class="form-control" name="software" required>
+                                                        <option>VSCode</option>
+                                                        <option>Android Studio</option>
+                                                        <option>IntelliJ IDEA</option>
+                                                        <option>NetBeans</option>
+                                                        <option>PyCharm</option>
+                                                        <option>Workbench</option>
+                                                        <option>XAMPP</option>
+                                                        <option>Oracle</option>
+                                                        <option>Ubuntu</option>
+                                                        <option>Ubuntu server</option>
+                                                        <option>Vue</option>
+                                                        <option>Node</option>
+                                                        <option>Express.js</option>
+                                                        <option>Otro</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-12">
-    
-                                            <div class="d-flex mt-4">
-                                                <div class="n-chk">
-                                                    <div class="form-check form-check-primary form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="event-level" value="Work" id="rwork">
-                                                        <label class="form-check-label" for="rwork">Work</label>
-                                                    </div>
-                                                </div>
-                                                <div class="n-chk">
-                                                    <div class="form-check form-check-warning form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="event-level" value="Travel" id="rtravel">
-                                                        <label class="form-check-label" for="rtravel">Travel</label>
-                                                    </div>
-                                                </div>
-                                                <div class="n-chk">
-                                                    <div class="form-check form-check-success form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="event-level" value="Personal" id="rPersonal">
-                                                        <label class="form-check-label" for="rPersonal">Personal</label>
-                                                    </div>
-                                                </div>
-                                                <div class="n-chk">
-                                                    <div class="form-check form-check-danger form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="event-level" value="Important" id="rImportant">
-                                                        <label class="form-check-label" for="rImportant">Important</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
                                     </div>
-                                    
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-success btn-update-event" data-fc-event-public-id="">Update changes</button>
-                                    <button type="button" class="btn btn-primary btn-add-event">Agregar Práctica</button>
-                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-success btn-update-event" data-fc-event-public-id="">Update changes</button>
+                                        <button type="submit" class="btn btn-primary btn-add-event">Agregar Práctica</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -388,10 +492,10 @@
             <!--  BEGIN FOOTER  -->
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
-                    <p class="">Copyright © <span class="dynamic-year">2022</span> <a target="_blank" href="http://www.oaxaca.tecnm.mx/">Instituto Tecnológico de Oaxaca</a>, Todos los derechos reservados.</p>
+                    <p class="">Copyright © <span class="dynamic-year">2023</span> <a target="_blank" href="http://www.oaxaca.tecnm.mx/">Instituto Tecnológico de Oaxaca</a>, Todos los derechos reservados.</p>
                 </div>
                 <div class="footer-section f-section-2">
-                    <p class="">Developed by Orlando Lucero</path></p>
+                    <p class="">Developed by ExpressITO</p>
                 </div>
             </div>
             <!--  END FOOTER  -->
@@ -408,12 +512,24 @@
     <script src="../src/plugins/src/mousetrap/mousetrap.min.js"></script>
     <script src="../layouts/vertical-dark-menu/app.js"></script>
     <script src="../src/plugins/src/highlight/highlight.pack.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="../src/plugins/src/fullcalendar/fullcalendar.min.js"></script>
     <script src="../src/plugins/src/fullcalendar/locales/es.js"></script>
     <script src="../src/plugins/src/uuid/uuid4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+          if ("<%= alert %>" === "true") {
+            var alertTitle = "<%= alertTitle %>"
+            Swal.fire({
+                icon: 'error',
+                title: alertTitle,
+            });
+          }
+        });
+    </script>
     <!-- END PAGE LEVEL SCRIPTS -->
     
     <!--  BEGIN CUSTOM SCRIPTS FILE  -->
