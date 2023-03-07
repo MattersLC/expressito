@@ -1,5 +1,6 @@
 var conexion = require("../config/conexion");
 var practica = require("../model/practica");
+var practicas = require("../model/practicasFS");
 const moment = require('moment-timezone');
 const db = require('../config/firebase');
 //import { collection, getDocs } from "firebase/firestore";
@@ -13,32 +14,27 @@ module.exports={
         }
     },
 
-    agendar:function (req,res) {
+    agendar:async function (req, res) {
         if(req.session.loggedin) {
-            practica.obtener(conexion,function(err,datos) {
-                res.render('practicas/agendar', {practicas:datos});
-            });
+            const practicasDB = await db.collection('practicas').get();
+            let data = practicasDB.docs.map((doc) => doc.data());
+            res.render('practicas/agendar', {practicas:data});
         } else {
             res.redirect('/');
         }
     },
 
-    nueva_practica:function(req,res) {
+    nueva_practica:function (req,res) {
         if(req.session.loggedin) {
-            res.render('practicas/nueva-practica', { alert: false, alertTitle: 'Todo ok' });
+            res.render('practicas/nueva-practica', { alert: false, alertTitle: '' });
         } else {
             res.redirect('/');
         }
     },
 
-    chat:async function (req,res) {
+    chat:function (req,res) {
         if(req.session.loggedin) {
             res.render('practicas/chat');
-            const docs = await db.collection('practicas').get();
-            docs.forEach((doc) => {
-            console.log(doc.id, '=>', doc.data());
-            });
-
         } else {
             res.redirect('/');
         }
@@ -61,7 +57,6 @@ module.exports={
     },
 
     eliminar:function (req,res) {
-        //console.log('Recepción de datos');
         practica.retornarDatosID(conexion, req.params.id, function(err,registros) {
             practica.borrar(conexion, req.params.id, function(err){
                  res.redirect('../agendar');
@@ -79,7 +74,28 @@ module.exports={
         });
     },
 
-    storePractice:function (req,res) {
+    storePractice:async function (req, res) {
+        const data = req.body;
+        let fecha = data.fecha;
+        let horario = data.horario;
+        // Eliminar las barras de la cadena de la fecha
+        fecha = fecha.replace(/\//g, '');
+        // Eliminar los espacios en blanco de la cadena de horario
+        horario = horario.replace(/\s/g, '');
+        // Dividir la cadena de horario en dos subcadenas
+        const horarios = horario.split('-');
+        // Eliminar los últimos dos dígitos de cada subcadena
+        horario = horarios[0].slice(0, -2) + horarios[1].slice(0, -2);
+        // Eliminar los símbolos "-" y ":" de la cadena de horario
+        horario = horario.replace(/[-:]/g, '');
+
+        let id = fecha.toString() + "" + horario.toString();
+        const newData = Object.assign({ID: id}, data);
+        console.log(newData);
+
+        const doc = await db.collection('practicas').add(newData);
+    },
+    /*storePractice:function (req,res) {
         const data = req.body;
         let fecha = data.fecha;
         let horario = data.horario;
@@ -107,7 +123,7 @@ module.exports={
                 });
             }
         });
-    }, 
+    },*/
 
     updatePractice:function (req, res) {
         if(req.session.loggedin) {
